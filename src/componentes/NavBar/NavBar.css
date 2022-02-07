@@ -1,0 +1,70 @@
+
+.Brand{
+    background-color: #282c34;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.Titulo{
+    color: #61dafb;
+    font-size: 34px;
+}
+
+.Menu{
+    background-color: #5b5c5e;
+    min-height: 10vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Aventura{
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+
+    color: rgb(25, 42, 196);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.Accion{
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+
+    color: rgb(25, 42, 196);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.Terror{
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+
+    color: rgb(25, 42, 196);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+}
+
+.Carreras{
+    margin-right: 40px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-left: 40px;
+
+    color: rgb(25, 42, 196);
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    font-size: 20px;
+}
