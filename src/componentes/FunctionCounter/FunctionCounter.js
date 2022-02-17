@@ -1,16 +1,16 @@
 import { useState } from "react"
 
-const FunctionCounter = () => {
+const FunctionCounter = ({min=0, max=20}) => {
     const [count, setCount] = useState(0)
 
     const decrement = () => {
-        if(count > 0) {
+        if(count > min) {
             setCount(count - 1)
         }
     }
 
     const increment = () => {
-        if(count < 20) {
+        if(count < max) {
             setCount(count + 1)
         }
     }
