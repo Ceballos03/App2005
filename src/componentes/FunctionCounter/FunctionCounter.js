@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const FunctionCounter = (props) => {
+const FunctionCounter = () => {
     const [count, setCount] = useState(0)
 
     const decrement = () => {
@@ -10,7 +10,9 @@ const FunctionCounter = (props) => {
     }
 
     const increment = () => {
-        setCount(count + 1)
+        if(count < 20) {
+            setCount(count + 1)
+        }
     }
 
     return(
