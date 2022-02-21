@@ -1,29 +1,15 @@
-import getProduct from "./Item";
-import { useEffect, useState } from "react"
+import Item from "./Item"
 
-
-export default function ItemList (){
+export default function ItemList ({products}){
     
-    const [products, setProducts] = useState([])
-
-
-    useEffect(() =>{
-        getProduct().then(products => {
-            console.log(products)
-            setProducts(products)
-        })
-    }, [])
-
-    console.log(products)
-
     return(
         <div>
-           
             <ul>
-                {products.map(product =>{
-                    return <li key={product.id}>{product.name}</li>
-                })}
+                {products.map(product =>
+                    <Item key={product.id} product={product} />
+                    )}
             </ul>
         </div>
     )
 }
+
