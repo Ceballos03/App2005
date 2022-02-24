@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 import ItemList from "./ItemList"
 
-const ItemListContainer = ({greeting = "Hola"})=> {
+const ItemListContainer = ()=> {
     const [products, setProducts] = useState([])
 
 
@@ -10,17 +10,18 @@ const ItemListContainer = ({greeting = "Hola"})=> {
             .then(response => {
                 return response.json()
             }).then(res=> {
-                setProducts(res.results)
+                setProducts(res.results.slice(0,3))
             })
     }, [])
 
 
-   // console.log(products)
+    //console.log('HOY',products)
     
     return(
-        <div>
-            <h1>{greeting}</h1>
+        <div className="ItemListContainer">
+            
             <ItemList products={products}/>
+            
         </div>
     )
 }

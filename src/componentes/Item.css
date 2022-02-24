@@ -1,0 +1,24 @@
+.d{
+    background-color: rgb(201, 202, 202);
+
+    margin-bottom: 5px;
+    margin-top: 5px;
+    height: 40vh;
+    width: 55vh;
+
+    border-radius: 5%;
+    padding: 25px;
+}
+
+.titulo{
+    font-size: 15px;
+    display: flex;
+    justify-content: left;
+}
+
+.imagen{
+    background-color: rgb(201, 202, 202);
+    border-radius: 10%;
+    width: 40%;
+    height: 40%;
+}
