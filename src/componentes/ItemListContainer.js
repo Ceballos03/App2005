@@ -1,30 +1,48 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList"
+import ItemList from "./ItemList"; 
+import { getProducts } from "./asyncmock";
 
 const ItemListContainer = ()=> {
     const [products, setProducts] = useState([])
 
+    useEffect ((categoryId)=>{
+        
+        getProducts().then(products=>{
+            setProducts(products)
+        })
+    },[])
 
-    useEffect(() =>{
-        fetch('https://api.mercadolibre.com/sites/MLA/search?q=games')
-            .then(response => {
-                return response.json()
-            }).then(res=> {
-                setProducts(res.results.slice(0,3))
-            })
-    }, [])
-
-
-    //console.log('HOY',products)
+    console.log('HOY',products)
     
     return(
         <div className="ItemListContainer">
-            
-            <ItemList products={products}/>
-            
+            <ItemList products={products} />
         </div>
     )
 }
 
 export default ItemListContainer;
 
+
+
+/*const ItemListContainer =() => {
+    const [products, setProducts] = useState([])
+
+    useEffect(() => {
+        getProducts().then(products => {
+            console.log(products)
+            setProducts(products)
+        })
+    }, [])
+
+
+    console.log(products)
+
+    return(
+        <div className="ItemListContainer">
+            <ItemList products={products}/>
+        </div>
+    )
+} 
+
+import { getProducts } from "./asyncmock"*/

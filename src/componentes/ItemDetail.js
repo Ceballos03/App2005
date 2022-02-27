@@ -2,17 +2,19 @@ import './ItemDetail.css'
 
 const ItemDetail = ({products})=>{
     console.log('SOY',products)
+
+
     return (
         <div>
             <div className="h">
                 <header>
                     <h2 className='n'>
-                        {products.title}
+                        {products.name}
                     </h2>
                 </header>
 
-                <picture className='p'>
-                    <img src={products.thumbnail} alt={products.title}/>
+                <picture>
+                    <img className='pictur' src={products.img} alt={products.name}/>
                 </picture>
 
                 <section className='s'>
@@ -25,8 +27,8 @@ const ItemDetail = ({products})=>{
                     <p>
                         Condicion: {products.condition}
                     </p>
-                    <p className='pid'>
-                        id: {products.id}
+                    <p>
+                        Categoria: {products.category}
                     </p>
                     <button>Comprar</button>
                 </section>

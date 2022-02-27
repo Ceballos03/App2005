@@ -1,18 +1,18 @@
 import { Link } from 'react-router-dom'
 import './Item.css'
 
-const Item = ({product})=>{
+export  default function Item ({product}){
     return (
         <div className="d">
             <div>
                 <header>
                     <h2 className='titulo'>
-                        {product.title}
+                        {product.name}
                     </h2>
                 </header>
 
                 <picture>
-                    <img className='imagen' src={product.thumbnail} alt={product.title}/>
+                    <img className='imagen' src={product.img} alt={product.name}/>
                 </picture>
 
                 <section className='cuerpo'>
@@ -22,13 +22,9 @@ const Item = ({product})=>{
                 </section>
 
                 <footer>
-                    <Link to={'/detail'}>
-                    <button className='Option'>Ver Detalle</button>
-                    </Link>
+                        <Link to={`/detail/${product.id}`}>Ver detalle</Link>
                 </footer>
             </div>
         </div>
     )
 }
-
-export default Item

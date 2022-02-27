@@ -6,15 +6,14 @@ import ItemDetailContainer from './componentes/ItemDetailContainer'
 
 function App() {
   return (
-
     <div className='App'>
 
     <BrowserRouter>
         <Navbar />
         
-        <Route exact path='/' component={ItemListContainer} />
+        <Route exact path='/' component={ItemListContainer}/>
         <Route exact path='/category/:id' component={ItemListContainer}/>
-        <Route exact path='/detail' component={ItemDetailContainer}/>
+        <Route exact path='/detail/:productId' component={ItemDetailContainer}/>
         
         
     </BrowserRouter>
