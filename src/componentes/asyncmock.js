@@ -10,10 +10,11 @@ const categories = [
 ]
 
 
-export const getProducts = ()=>{
+export const getProducts = (idCategory)=>{
     return new Promise ((resolve)=>{
+        const productsToResolve = idCategory ? products.filter(item => item.category === idCategory) : products
         setTimeout(()=>{
-            resolve(products)
+            resolve(productsToResolve);
         }, 2000)
     })
 }

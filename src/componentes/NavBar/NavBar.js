@@ -1,6 +1,6 @@
 import './NavBar.css'
 import CartWidget from '../CartWidget';
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react'
 import { getCategories } from '../asyncmock';
 
@@ -14,11 +14,12 @@ const Navbar = () => {
         })
     }, [])
 
-
     return(
         <nav>
             <div className='Brand'>
-                <p className='Titulo'>GAMES-SHOPE</p>
+                <Link to={'/'}>
+                    <p className='Titulo'>GAMES-SHOPE</p>
+                </Link>
                 <CartWidget />
             </div>
 
