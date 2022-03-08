@@ -4,6 +4,7 @@ import FunctionCounter from '../componentes/FunctionCounter/FunctionCounter';
 import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom'
 import { CartContext } from './CartContext';
+import { useNotificationServices } from './NotificationServices';
 
 const ItemDetail = ({products})=>{
     //console.log('SOY',products)
@@ -11,9 +12,12 @@ const ItemDetail = ({products})=>{
     const [qty, setQty] = useState(0);
     const {addToCart} = useContext(CartContext)
 
+    const setNotification = useNotificationServices()
+
     const onAdd = (cantidad) => {
         setQty(cantidad);
         addToCart(products, cantidad)
+        setNotification('success', `Se agrego ${products.name} al carrito`)
     };
 
 
