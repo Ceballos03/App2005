@@ -1,11 +1,48 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList"; 
-import { getProducts } from "./asyncmock";
+import { getDocs, collection, query, where } from "firebase/firestore"
+import { firestoreDb } from "./firebase";
+
 
 const ItemListContainer = () => {
     const [products, setProducts] = useState([])
-    const { idCategory } = useParams()
+    const { categoryId } = useParams()
+
+    useEffect(() => {
+        const collectionRef = categoryId ?
+            query(collection(firestoreDb, 'products'), where('category', '==', categoryId)) :
+            collection(firestoreDb, 'products')
+
+
+        getDocs(collectionRef).then(response => {
+            const products = response.docs.map(doc => {
+            console.log(doc)
+            return { id: doc.id, ...doc.data()}
+            })
+            console.log(products)
+            setProducts(products)
+        })
+
+        return (()=>{
+            setProducts()
+            console.log('SOY PRODUCTS', setProducts)
+        })
+    },[categoryId])
+
+
+    return(
+        <div className="ItemListContainer">
+            <ItemList products={products} />
+        </div>
+    )
+    
+}
+
+export default ItemListContainer;
+
+
+/* 
 
     useEffect(() => {
         getProducts(idCategory).then(item => {
@@ -19,46 +56,4 @@ const ItemListContainer = () => {
             console.log('SOY PRODUCTS', setProducts)
         })
     },[idCategory])
-    
-    
-    return(
-        <div className="ItemListContainer">
-            <ItemList products={products} />
-        </div>
-    )
-    
-}
-
-export default ItemListContainer;
-
-
-    //console.log('san', idCategory)
-    //console.log('bia', setProducts) 
-
-/*const ItemListContainer =() => {
-    const [products, setProducts] = useState([])
-
-    useEffect(() => {
-        getProducts().then(products => {
-            console.log(products)
-            setProducts(products)
-        })
-    }, [])
-
-
-    console.log(products)
-
-    return(
-        <div className="ItemListContainer">
-            <ItemList products={products}/>
-        </div>
-    )
-} 
-
-import { getProducts } from "./asyncmock"*/
-
-/* useEffect (()=>{
-        getProducts().then(products=>{
-            setProducts(products)
-        })
-    },[]) */
+*/

@@ -17,7 +17,7 @@ function App() {
             <Navbar />
             
             <Route exact path='/' component={ItemListContainer}/>
-            <Route exact path='/category/:idCategory' component={ItemListContainer}/>
+            <Route exact path='/category/:categoryId' component={ItemListContainer}/>
             <Route exact path='/detail/:productId' component={ItemDetailContainer}/>
             <Route exact path='/cart' component={Cart} />
             

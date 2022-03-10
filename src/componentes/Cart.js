@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-//import { getProducts } from "./asyncmock";
 import { CartContext } from "./CartContext";
 
 const Cart = () => {
